@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <title>Liste os repositórios de um usuário - GitHub Repositories</title>
+</head>
+
+<body>
+    <header>
+        <nav id="navSuperior">
+            <div id="navLogo">
+                <img src="assets/imgs/react-logo.png" alt="Logo do React JS">
+            </div>
+            <ul id="navOptions">
+                <li><a href="">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="pa-all-g">
+        <form id="usuarioForm" action="">
+            <input class="userInpt" type="text" name="usuarioNome" placeholder="Usuário GitHub">
+            <button class="userBtn" type="submit">Listar Repositórios</button>
+        </form>
+
+        <section id="repositories" class="pa-all-g">
+            <img class="react-banner" src="assets/imgs/react-logo.png" alt="Logo React Js.">
+            <h1>Repositórios</h1>
+            <div id="tabela" class="pa-all-g">
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Descricão</th>
+                        <th>Data de Criação</th>
+                        <th>Tamanho</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Primeiro</td>
+                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias obcaecati, facilis, culpa.</td>
+                        <td>12/2/2002</td>
+                        <td>200 MB</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
