@@ -5,6 +5,12 @@
     font-family: 'Calibri'; /* Por enquanto */
     outline: none;
     font-size: 14px;
+    font-family: 'Source Sans Pro';
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url("../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf");
 }
 
 #navLogo img {
@@ -79,6 +85,8 @@
     border: 1px solid #707070;
     border-radius: 30px;
     background-color: white;
+    /* border-collapse: collapse; */
+    border-spacing: 0; /* Remove os espaço s entre as células*/
 }
 
 #tabela table th {
@@ -92,10 +100,17 @@
     width: 200px;
     text-align: center;
     font-size: 1.5em;
+    border-spacing: 0px;
+    padding: 20px 0;
 }
 
 #tabela table tr:nth-child(even) {
-    background-color: #f6f6f6;
+    background-color: #CFCECE;
+}
+
+#tabela table tr:not(#head):hover {
+    background-color: rgb(122, 122, 122);
+    transition: all .3s;
 }
 
 .react-banner {
@@ -109,7 +124,7 @@
 .userInpt {
     padding: 10px;
     border: 1px solid #707070;
-    border-radius: 50px;
+    border-radius: 10px;
     font-size: 1.4em;
     /* box-shadow: 4px 4px 4px #ccc; */
 }
@@ -119,7 +134,7 @@
     background-color: #00D8FF;
     color: #262626;
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 10px;
     border: none;
     box-shadow: 4px 4px 4px #ccc;
     transition: all .3s;

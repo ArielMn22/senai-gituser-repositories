@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import '../../assets/css/index.css'
+
 import logo from '../../assets/imgs/react-logo.png'
 
 class App extends Component {
@@ -21,7 +22,6 @@ class App extends Component {
 
     this.buscaUsuarioRepositories = this.buscaUsuarioRepositories.bind(this);
     this.atualizaNome = this.atualizaNome.bind(this);
-    // this.cadastrarTipoEvento = this.cadastrarTipoEvento.bind(this);
   }
   
   buscaUsuarioRepositories(event)
@@ -30,17 +30,29 @@ class App extends Component {
 
     console.log("valor do this.state.nome: " + this.state.nome);
     
-    fetch("https://api.github.com/users/" + this.state.nome + "/repos?client_id=f9e71b257ab4a97c6a62&client_secret=9682bfc66b0a2c1711dc99d79d9887ec95e91c3e", {
-      method: 'GET',
-      // autorizacao
-      // headers: {
-      //   'Authorization' : 'Basic usuario:senha'
-      // }
+    if (this.state.nome === null)
+    {
+      console.log("Não pode estar vazia.");
+    } else {
+   
+    fetch("https://api.github.com/users/" + this.state.nome + "/repos?client_id=f9e71b257ab4a97c6a62&client_secret=9682bfc66b0a2c1711dc99d79d9887ec95e91c3e")
+    .then(response => {
+      if (response.ok)
+      {
+        response.json()
+        .then(data => this.setState({ lista: data }))
+        .catch(erro => console.log(erro))
+      } else {
+        console.log("Erro: usuário não encontrado!");
+      }
     })
-    .then(response => response.json())
-    .then(data => this.setState({ lista: data }))
-    // .then(data => console.log(data))
-    .catch(erro => console.log(erro))
+  }
+    
+    // fetch("https://api.github.com/users/" + this.state.nome + "/repos?client_id=f9e71b257ab4a97c6a62&client_secret=9682bfc66b0a2c1711dc99d79d9887ec95e91c3e")
+    // .then(response => response.json())
+    // .then(data => this.setState({ lista: data }))
+    // // .then(data => console.log(data))
+    // .catch(erro => console.log(erro))
   }
 
   atualizaNome(event)
@@ -78,7 +90,7 @@ class App extends Component {
             <div id="tabela" className="pa-all-g">
                 <table>
                   <thead>
-                    <tr>
+                    <tr id="head">
                         <th>Id</th>
                         <th>Nome</th>
                         <th>Descricão</th>
@@ -93,6 +105,7 @@ class App extends Component {
                           <td>{repositorio.id}</td>
                           <td>{repositorio.name}</td>
                           <td>{repositorio.description}</td>
+                          {/* <td>{repositorio.description.substring(0, 20) + "..."}</td> */}
                           <td>{repositorio.created_at}</td>
                           <td>{repositorio.size}</td>
                         </tr>
